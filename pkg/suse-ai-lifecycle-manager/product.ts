@@ -13,7 +13,7 @@ import type { RancherStore } from './types/rancher-types';
 export { PRODUCT } from './config/suseai';
 
 export function init($plugin: IPlugin, store: RancherStore) {
-  const { product, virtualType, basicType } = $plugin.DSL(store, PRODUCT);
+  const { product, virtualType, basicType, weightType, weightGroup } = $plugin.DSL(store, PRODUCT);
 
   // Register store modules following standard patterns
   store.registerModule?.(PRODUCT, suseaiStore);
@@ -41,6 +41,23 @@ export function init($plugin: IPlugin, store: RancherStore) {
     });
   });
 
-  // Register basic types
+  // Register basic types (Apps at root level)
   basicType(BASIC_TYPES);
+
+  // Register Kubeflow Admin sub-pages as a collapsible group
+  basicType([
+    PAGE_TYPES.KUBEFLOW_DEPLOYMENTS,
+    PAGE_TYPES.KUBEFLOW_NOTEBOOKS,
+    PAGE_TYPES.KUBEFLOW_PIPELINES,
+    PAGE_TYPES.KUBEFLOW_SETTINGS
+  ], 'kubeflow-admin-group');
+
+  // Set weights for Kubeflow Admin sub-pages (ordering within group)
+  weightType(PAGE_TYPES.KUBEFLOW_DEPLOYMENTS, 100, true);
+  weightType(PAGE_TYPES.KUBEFLOW_NOTEBOOKS, 90, true);
+  weightType(PAGE_TYPES.KUBEFLOW_PIPELINES, 80, true);
+  weightType(PAGE_TYPES.KUBEFLOW_SETTINGS, 70, true);
+
+  // Set weight for the Kubeflow Admin group (positioning in menu)
+  weightGroup('kubeflow-admin-group', 75, true);
 }

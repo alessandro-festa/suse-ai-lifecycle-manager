@@ -3,6 +3,8 @@
   "description": "SUSE AI Lifecycle Manager",
   "version": "1.0.0",
   "private": false,
+  "main": "index.ts",
+  "module": "index.ts",
   "rancher": {
     "annotations": {
       "catalog.cattle.io/rancher-version": ">= 2.10.0",

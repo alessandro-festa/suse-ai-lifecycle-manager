@@ -88,7 +88,12 @@ export const PAGE_TYPES = {
   INSTALL: 'install',
   MANAGE: 'manage',
   REPOSITORIES: 'repositories',
-  SETTINGS: 'settings'
+  SETTINGS: 'settings',
+  KUBEFLOW_ADMIN: 'kubeflow-admin',
+  KUBEFLOW_DEPLOYMENTS: 'kubeflow-deployments',
+  KUBEFLOW_NOTEBOOKS: 'kubeflow-notebooks',
+  KUBEFLOW_PIPELINES: 'kubeflow-pipelines',
+  KUBEFLOW_SETTINGS: 'kubeflow-settings'
 } as const;
 
 export type PageType = typeof PAGE_TYPES[keyof typeof PAGE_TYPES];
@@ -106,6 +111,51 @@ export const VIRTUAL_TYPES: VirtualTypeConfig[] = [
     label: 'Apps',
     route: {
       name: `c-cluster-${PRODUCT}-${PAGE_TYPES.APPS}`,
+      params: { product: PRODUCT, cluster: BLANK_CLUSTER },
+      meta: { product: PRODUCT }
+    }
+  },
+  {
+    name: PAGE_TYPES.KUBEFLOW_ADMIN,
+    label: 'Kubeflow Admin',
+    route: {
+      name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_ADMIN}`,
+      params: { product: PRODUCT, cluster: BLANK_CLUSTER },
+      meta: { product: PRODUCT }
+    }
+  },
+  {
+    name: PAGE_TYPES.KUBEFLOW_DEPLOYMENTS,
+    label: 'Deployments',
+    route: {
+      name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_DEPLOYMENTS}`,
+      params: { product: PRODUCT, cluster: BLANK_CLUSTER },
+      meta: { product: PRODUCT }
+    }
+  },
+  {
+    name: PAGE_TYPES.KUBEFLOW_NOTEBOOKS,
+    label: 'Notebooks',
+    route: {
+      name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_NOTEBOOKS}`,
+      params: { product: PRODUCT, cluster: BLANK_CLUSTER },
+      meta: { product: PRODUCT }
+    }
+  },
+  {
+    name: PAGE_TYPES.KUBEFLOW_PIPELINES,
+    label: 'Pipelines',
+    route: {
+      name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_PIPELINES}`,
+      params: { product: PRODUCT, cluster: BLANK_CLUSTER },
+      meta: { product: PRODUCT }
+    }
+  },
+  {
+    name: PAGE_TYPES.KUBEFLOW_SETTINGS,
+    label: 'Settings',
+    route: {
+      name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_SETTINGS}`,
       params: { product: PRODUCT, cluster: BLANK_CLUSTER },
       meta: { product: PRODUCT }
     }

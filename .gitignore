@@ -72,3 +72,6 @@ jspm_packages/
 # System Files
 .DS_Store
 Thumbs.db
+rancher-api-v2-13 (1).yaml
+package-lock.json
+yarn.lock

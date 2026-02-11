@@ -61,7 +61,45 @@ export default [
     meta:      { product: PRODUCT, category: 'settings' }
   },
 
-  // Legacy routes (kept for compatibility during transition)
+  // Kubeflow Admin - Parent route → redirect to Deployments
+  {
+    name:     `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_ADMIN}`,
+    path:     `/c/:cluster/${PRODUCT}/${PAGE_TYPES.KUBEFLOW_ADMIN}`,
+    redirect: { name: `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_DEPLOYMENTS}` },
+    meta:     { product: PRODUCT }
+  },
+
+  // Kubeflow Deployments page
+  {
+    name:      `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_DEPLOYMENTS}`,
+    path:      `/c/:cluster/${PRODUCT}/${PAGE_TYPES.KUBEFLOW_ADMIN}/${PAGE_TYPES.KUBEFLOW_DEPLOYMENTS}`,
+    component: () => import('./pages/kubeflow/Deployments.vue'),
+    meta:      { product: PRODUCT, category: 'kubeflow-admin' }
+  },
+
+  // Kubeflow Notebooks page
+  {
+    name:      `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_NOTEBOOKS}`,
+    path:      `/c/:cluster/${PRODUCT}/${PAGE_TYPES.KUBEFLOW_ADMIN}/${PAGE_TYPES.KUBEFLOW_NOTEBOOKS}`,
+    component: () => import('./pages/kubeflow/Notebooks.vue'),
+    meta:      { product: PRODUCT, category: 'kubeflow-admin' }
+  },
+
+  // Kubeflow Pipelines page
+  {
+    name:      `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_PIPELINES}`,
+    path:      `/c/:cluster/${PRODUCT}/${PAGE_TYPES.KUBEFLOW_ADMIN}/${PAGE_TYPES.KUBEFLOW_PIPELINES}`,
+    component: () => import('./pages/kubeflow/Pipelines.vue'),
+    meta:      { product: PRODUCT, category: 'kubeflow-admin' }
+  },
+
+  // Kubeflow Settings page
+  {
+    name:      `c-cluster-${PRODUCT}-${PAGE_TYPES.KUBEFLOW_SETTINGS}`,
+    path:      `/c/:cluster/${PRODUCT}/${PAGE_TYPES.KUBEFLOW_ADMIN}/${PAGE_TYPES.KUBEFLOW_SETTINGS}`,
+    component: () => import('./pages/kubeflow/Settings.vue'),
+    meta:      { product: PRODUCT, category: 'kubeflow-admin' }
+  },
   {
     name:      `c-cluster-${PRODUCT}-home`,
     path:      `/c/:cluster/${PRODUCT}/home`,

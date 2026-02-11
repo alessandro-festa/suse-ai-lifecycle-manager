@@ -13,7 +13,8 @@
       "install": "Install",
       "manage": "Manage",
       "repositories": "Repositories",
-      "settings": "Settings"
+      "settings": "Settings",
+      "kubeflowAdmin": "Kubeflow Admin"
     },
     "apps": {
       "title": "AI/ML Applications",
@@ -101,6 +102,97 @@
         "url": "Repository URL",
         "username": "Username",
         "password": "Password"
+      }
+    },
+    "kubeflowAdmin": {
+      "title": "Kubeflow Admin",
+      "description": "Manage Kubeflow deployments, notebooks, pipelines, and settings",
+      "deployments": {
+        "title": "Kubeflow Deployments",
+        "subtitle": "Manage Kubeflow model deployments",
+        "noDeployments": "No Deployments Yet",
+        "createDeployment": "Create Deployment",
+        "columns": {
+          "name": "Name",
+          "status": "Status",
+          "replicas": "Replicas",
+          "created": "Created"
+        },
+        "actions": {
+          "deploy": "Deploy Model",
+          "update": "Update",
+          "delete": "Delete",
+          "logs": "View Logs"
+        }
+      },
+      "notebooks": {
+        "title": "Kubeflow Notebooks",
+        "subtitle": "Manage Jupyter notebooks and interactive workspaces",
+        "noNotebooks": "No Notebooks Running",
+        "createNotebook": "Create Notebook",
+        "columns": {
+          "name": "Name",
+          "status": "Status",
+          "namespace": "Namespace",
+          "created": "Created"
+        },
+        "actions": {
+          "create": "Create Notebook",
+          "connect": "Connect",
+          "delete": "Delete",
+          "logs": "View Logs"
+        }
+      },
+      "pipelines": {
+        "title": "Kubeflow Pipelines",
+        "subtitle": "Manage and execute ML workflows",
+        "noPipelines": "No Pipelines Created",
+        "uploadPipeline": "Upload Pipeline",
+        "columns": {
+          "name": "Name",
+          "status": "Status",
+          "runs": "Runs",
+          "created": "Created"
+        },
+        "actions": {
+          "create": "Create Pipeline",
+          "run": "Run Pipeline",
+          "delete": "Delete",
+          "logs": "View Logs"
+        }
+      },
+      "settings": {
+        "title": "Kubeflow Settings",
+        "subtitle": "Configure Kubeflow components and features",
+        "sections": {
+          "general": "General Settings",
+          "components": "Enabled Components",
+          "resources": "Resource Configuration",
+          "advanced": "Advanced Settings"
+        },
+        "options": {
+          "modelRegistry": "Enable Model Registry",
+          "notebooks": "Enable Notebooks",
+          "pipelines": "Enable Pipelines"
+        },
+        "actions": {
+          "save": "Save Settings",
+          "reset": "Reset"
+        }
+      },
+      "common": {
+        "status": {
+          "running": "Running",
+          "pending": "Pending",
+          "failed": "Failed",
+          "stopped": "Stopped",
+          "unknown": "Unknown"
+        },
+        "messages": {
+          "deploymentSuccess": "Successfully deployed",
+          "deploymentFailed": "Deployment failed",
+          "deletionConfirm": "Are you sure you want to delete this item?"
+        }
       }
     },
     "common": {
